@@ -61,19 +61,21 @@ $(document).ready(function () {
     var left_pos = $(".bottles").offset().left;
     check_arrows(left_pos);
     $(".bottle:not(.bottle_fake)").hover(function () {
-
-
             var id = $(this).attr("id");
             var desc_item = $("#desc_" + id);
             if (!desc_item.hasClass("op1")) {
                 $(".bottle_desc_item").removeClass("op1");
                     $(".bottle_desc_item").addClass("hidden");
                 desc_item.removeClass("hidden");
+                $(".bottle_desc_item:not(#{id})".replace("{id}", id)).find(".circle_full").removeClass("circle_full");
+                        refeel_props();
                 setTimeout(function () {
                     desc_item.addClass("op1");
                 }, 1)
             }
             $(".bottle:not(#{id})".replace("{id}", id)).removeClass("hovered");
+
+
             $(this).addClass("hovered")
         }
     )
