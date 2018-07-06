@@ -1,0 +1,25 @@
+.top_pict {
+    background-image: url(/static/images/where_buy/Header_top_image_buy_1920x470.jpg);
+}
+
+.sub_text {
+    padding: 15px;
+}
+
+.shop_list {
+        margin: 30px 0px;
+}
+
+.shop {
+    border-bottom: 1px solid #D4A107;
+    padding: 25px 15px;
+}
+.shop:hover{
+    background-color: #F5EFE1;
+}
+.shop h2 {
+    font-weight: normal;
+    font-size: 30px;
+    padding: 5px 0;
+}
+

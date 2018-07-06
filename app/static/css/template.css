@@ -1,0 +1,321 @@
+@font-face {
+    font-family: "palker_font";
+    src: url('/static/MrPalker.otf') format("opentype");
+}
+
+@font-face {
+    font-family: "palkerLight_font";
+    src: url('/static/MrPalkerLight.otf') format("opentype");
+}
+
+@font-face {
+    font-family: "segoe";
+    src: url('/static/segoeui.ttf') format("truetype");
+}
+
+html, label, p, body, h1, h2, h3 {
+    padding: 0;
+    margin: 0;
+}
+
+.palker {
+    font-family: "palker_font", Verdana, Tahoma;
+}
+
+.palker_light {
+    font-family: "palkerLight_font", Verdana, Tahoma;
+    letter-spacing: 1px;
+}
+
+.segoe {
+    font-family: "segoe", Verdana, Tahoma;
+}
+
+/*-----------COMMON------------------*/
+.art_text ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+blockquote {
+    margin: 0;
+    padding: 20px 200px;
+    border-bottom: 1px solid #B5A567;
+    border-top: 1px solid #B5A567;
+}
+.art_text li::before {
+    content: "• ";
+    color: #D6A106;
+    font-size: 40px;
+    position: absolute;
+    left: 0;
+    top: -17px;
+}
+.art_text li{
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
+.art_text{
+    margin: 40px 0;
+}
+.art_label {
+    position: relative;
+    padding-top: 32px;
+    margin-top: 50px;
+}
+
+.vinete {
+    width: calc(100% - 2px);
+    height: 15px;
+    margin-top: 5px;
+    margin-left: 5px;
+    border-color: #D4A107;
+    border-width: 1px;
+    border-bottom: 2px solid #D4A107;
+    border-right: 2px solid #D4A107;
+    position: relative;
+    background-color: white;
+}
+
+.vinete_inner {
+    width: 100%;
+    height: 100%;
+    background-color: #D4A107;
+    position: absolute;
+    top: -2px;
+    left: -2px;
+}
+
+.art_label h2, .art_label h1 {
+    font-size: 40px;
+    font-weight: normal;
+    position: absolute;
+    top: 0;
+    left: 13px;
+}
+
+.up_circles {
+    background-image: url(/static/images/common/Circle_10px_halfUP.png);
+    height: 5px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.bot_circles {
+    background-image: url(/static/images/common/Circle_10px_halfDown.png);
+    height: 5px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background-position-y: -5px;
+}
+
+/*-----------END_COMMON------------------*/
+/*-----------FOOTER------------------*/
+footer {
+    color: white;
+    background-image: url("/static/images/template/hg-2.jpg");
+    background-size: cover;
+    margin-top: 100px;
+
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.f_news_list {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    width: 300px;
+}
+
+.f_news {
+    display: inline-block;
+}
+
+.f_news .up_circles, .f_news .bot_circles {
+    position: relative;
+}
+
+.b_shadowbox {
+    background: rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+    padding-top: 15px;
+    padding-bottom: 40px;
+}
+
+.f_sorts {
+    overflow: hidden;
+    float: left;
+}
+
+.f_news .f_label {
+    margin-left: 10px;
+}
+
+.f_sorts .f_label, .f_news .f_label {
+    margin-top: 0;
+}
+
+.f_label {
+    font-size: 35px;
+    margin: 15px 0;
+}
+
+.f_logo {
+    float: left;
+    margin-right: 80px;
+}
+
+.f_sorst_column {
+    float: left;
+    margin-right: 20px;
+    width: 450px;
+height: 242px;
+}
+
+.f_sorst_column a {
+    color: white;
+    display: block;
+    width: 200px;
+    float: left;
+}
+
+.f_contact_block {
+    margin-left: 10px;
+}
+
+.f_logos {
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.f_cellphone {
+    font-size: 25px;
+}
+
+.f_logos a {
+    margin-right: 5px;
+    display: block;
+    float: left;
+    border: 1px solid white;
+    border-radius: 100px;
+    width: 28px;
+    height: 28px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.f_contacts {
+    margin-top: 20px;
+}
+
+.f_btns {
+    clear: both;
+    margin-top: 150px;
+}
+
+.f_btns p {
+    float: left;
+    margin-right: 40px;
+}
+.f_copyright{
+    margin-top: 40px;
+    font-size: 14px;
+}
+/*-----------END_FOOTER------------------*/
+/*--------------FRAMEWORK------------------------*/
+.mw {
+    width: 1200px;
+    margin: 0 auto;
+}
+.dark_box{
+    background-color: rgba(255,255,255,.6);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+}
+.loading{
+    text-align: center;
+}
+.col2_border {
+    width: calc(50% - 1px);
+    float: left;
+}
+
+.col2 {
+    width: 50%;
+    float: left;
+}
+
+.col3_border {
+    width: calc(33.333% - 1px);
+    float: left;
+}
+.w60{
+    width: calc(60% - 1px);
+}
+.w40{
+    width: calc(40% - 1px);
+}
+.col4 {
+    width: 25%;
+    float: left;
+}
+
+.pl10 {
+    padding-left: 10px;
+}
+
+.op1 {
+    opacity: 1 !important;
+}
+
+.oh {
+    overflow: hidden;
+}
+
+.pr {
+    position: relative;
+}
+.hidden{
+    visibility: hidden;
+    display: none;
+}
+.loading .bottle_l1{
+    animation-name: loading_bottle1;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+.loading .bottle_l2{
+    animation-name: loading_bottle2;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    margin-left: 80px;
+}
+/*--------------END_FRAMEWORK------------------------*/
+
+
+/*--------------ANIMATIONS------------------------*/
+@keyframes loading_bottle1 {
+    0%   {transform: rotate(0deg)}
+    50%  {transform: rotate(45deg)}
+    100% {transform: rotate(0deg)}
+}
+@keyframes loading_bottle2 {
+    0%   {transform: rotate(0deg)}
+    50%  {transform: rotate(-45deg)}
+    100% {transform: rotate(0deg)}
+}
+/*--------------END_ANIMATIONS------------------------*/

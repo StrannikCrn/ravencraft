@@ -1,0 +1,51 @@
+{% extends 'app/second_template.html' %}
+
+{% load staticfiles %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/second_template.css' %}">
+    <link rel="stylesheet" href="{% static 'css/where_buy.css' %}">
+{% endblock head %}
+
+
+{% block main %}
+    <article>
+        <div class="top_pict"></div>
+        <div class="content mw">
+            <div class="art_label palker mw">
+                <div class="vinete">
+                    <div class="vinete_inner"></div>
+                </div>
+                <h1>Точки продаж</h1>
+            </div>
+            <div class="sub_text segoe">
+                <p><b>Друзья, обращаем Ваше внимание, что в данном списке приведены только некоторые точки продаж
+                    продукции
+                    нашей пивоварни. Всю актуальную информацию Вы можете узнать, позвонив по телефону
+                    +7-920-467-65-08.</b></p>
+            </div>
+            <div class="shop_list segoe">
+                <div class="shop">
+                    <h2 class="palker">Фирменный магазин "RAVENCRAFT Beer Shop"</h2>
+                    <p>Адрес: г. Воронеж, ул. 9 января, 262/6</p>
+                    <p>Телефон: +7-900-000-00-00</p>
+                </div>
+                <div class="shop">
+                    <h2 class="palker">Сеть магазинов "ХМЕЛЬНИК"</h2>
+                    <p>Адрес: г. Воронеж</p>
+                    <p>Телефон: +7-900-000-00-00</p>
+                </div>
+                <div class="shop">
+                    <h2 class="palker">Сеть магазинов "Бир Мир"</h2>
+                    <p>Адрес: г. Воронеж, ул. 9 января, 262/6</p>
+                    <p>Телефон: +7-900-000-00-00</p>
+                </div>
+                <div class="shop">
+                    <h2 class="palker">Бар "Дудки"</h2>
+                    <p>Адрес: г. Воронеж, ул. 9 января, 262/6</p>
+                    <p>Телефон: +7-900-000-00-00</p>
+                </div>
+            </div>
+        </div>
+    </article>
+{% endblock main %}

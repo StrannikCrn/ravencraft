@@ -1,0 +1,270 @@
+/*--------HEADER-----------*/
+.header {
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.header_inner {
+    padding: 15px;
+}
+
+.h_logo {
+    float: left;
+    text-decoration: none;
+    width: 130px;
+}
+
+
+.h_logo img {
+    width: 120px;
+    margin-top: -7px;
+}
+
+.underlogo_text {
+    font-family: "palker_font", Verdana, Tahoma;
+    font-size: 32px;
+    margin-top: -4px;
+    color: white;
+
+}
+
+.underlogo_text2 {
+    font-family: "palker_font", Verdana, Tahoma;
+    font-size: 32px;
+    margin-top: -4px;
+    color: white;
+    display: none;
+
+}
+
+.h_logo:hover .underlogo_text {
+    display: none;
+}
+
+.h_logo:hover .underlogo_text2 {
+    display: block;
+
+}
+
+.h_nav {
+    overflow: hidden;
+    float: left;
+    margin-top: 20px;
+    margin-left: 50px;
+}
+
+.h_nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 35px;
+    display: block;
+}
+
+.h_nav_item {
+    float: left;
+    text-align: center;
+}
+
+.h_nav_item:hover .h_underline {
+    width: 100%;
+}
+
+.h_underline {
+    width: 0%;
+    height: 5px;
+    background-color: white;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out;
+    display: inline-block;
+
+}
+
+.h_circle {
+    width: 8px;
+    height: 8px;
+    background-color: white;
+    border-radius: 100px;
+    margin-top: 20px;
+}
+
+.h_circle_wrapper {
+    float: left;
+    margin: 0 20px
+}
+
+.h_contacts {
+    float: right;
+    color: white;
+    text-align: right;
+}
+
+.h_phone {
+    font-size: 22px;
+}
+
+.h_logos {
+    overflow: hidden;
+    float: right;
+    margin-top: 20px;
+}
+
+.h_logos a {
+    margin-left: 5px;
+    display: block;
+    float: left;
+    border: 1px solid white;
+    border-radius: 100px;
+    width: 28px;
+    height: 28px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.h_address {
+    font-size: 15px;
+}
+
+.vk_circle {
+    background-image: url("/static/images/template/VK_logo_no_circle.png");
+}
+
+.facebook_circle {
+    background-image: url("/static/images/template/facebook_logo_no_circle.png");
+}
+
+.instagram_circle {
+    background-image: url("/static/images/template/Instagram_logo_no_circle.png");
+}
+
+/*--------END_HEADER-----------*/
+
+.big_block {
+    background: url(/static/images/index/Main.jpg);
+    height: 100vh;
+    background-size: cover;
+    text-align: center;
+}
+
+.big_block h1 {
+    color: white;
+    text-align: center;
+    font-size: 57px;
+    font-weight: normal;
+    padding-top: 310px;
+}
+
+.show_btn {
+    border: 1px solid white;
+    color: white;
+    display: inline-block;
+    padding: 2px 35px 10px;
+    font-size: 19px;
+    transition-duration: 0.3s;
+    cursor: pointer;
+    margin-top: 50px;
+}
+
+.show_btn:hover {
+    background-color: white;
+    color: black;
+}
+
+.light_box {
+    background-color: rgba(0, 0, 0, 0.6);
+    height: 100%;
+}
+
+/*
+.news {
+    margin-top: 15px;
+    overflow: hidden;
+}
+
+.news_item {
+    float: left;
+    width: calc(50% - 5px);
+    margin-bottom: 10px;
+    color: white;
+    height: 150px;
+    position: relative;
+    transition-duration: 0.3s;
+    background-size: 100%;
+}
+
+.news_item:hover {
+    background-size: 110%;
+}
+
+.news_item:nth-of-type(odd) {
+    margin-right: 5px
+}
+
+.news_item:nth-of-type(even) {
+    margin-left: 5px
+}
+
+.news_text {
+    position: absolute;
+    bottom: 10px;
+    margin-left: 10px;
+}
+
+.news_label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.news_date {
+    margin-right: 10px;
+    margin-top: 10px;
+    float: right;
+}
+*/
+
+/*-------END_BOTTLES-------*/
+
+/*-------FEATURES-------*/
+.parallax {
+    background-image: url(/static/images/index/parallax.jpg);
+    background-position-x: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.parallax_dark {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 50px 0;
+}
+
+.features {
+    overflow: hidden;
+}
+
+.feature_item {
+    text-align: center;
+    color: white;
+}
+
+.feature_label {
+    font-size: 30px;
+}
+
+.feature_text {
+}
+
+.feature_item img {
+    border-radius: 100px;
+    width: 150px;
+}
+
+/*-------END_FEATURES-------*/
+.about_text {
+    margin-bottom: 20px;
+    margin-left: 12px;
+}
+
+.about_block {
+    margin-bottom: 150px;
+}

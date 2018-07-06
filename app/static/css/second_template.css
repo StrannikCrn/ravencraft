@@ -1,0 +1,136 @@
+/*--------HEADER-----------*/
+.header {
+    height: 235px;
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    z-index: 1;
+-webkit-box-shadow: inset 0px 104px 40px -13px rgba(0,0,0,0.9);
+-moz-box-shadow: inset 0px 104px 40px -13px rgba(0,0,0,0.9);
+box-shadow: inset 0px 104px 40px -13px rgba(0,0,0,0.9);
+
+
+background-color: rgba(0,0,0,0.6);
+}
+
+.header_inner {
+    padding: 15px;
+}
+
+.h_logo {
+    float: left;
+}
+.h_logo img{
+    width: 120px;
+    margin-top: -7px;
+}
+
+.h_nav {
+    overflow: hidden;
+    float: left;
+    margin-top: 20px;
+    margin-left: 50px;
+}
+
+.h_nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 35px;
+    display: block;
+}
+
+.h_nav_item {
+    float: left;
+    text-align: center;
+}
+
+.h_nav_item:hover .h_underline {
+    width: 100%;
+}
+
+.h_underline {
+    width: 0%;
+    height: 5px;
+    background-color: white;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out;
+    display: inline-block;
+
+}
+
+.h_circle {
+    width: 8px;
+    height: 8px;
+    background-color: white;
+    border-radius: 100px;
+    margin-top: 20px;
+}
+
+.h_circle_wrapper {
+    float: left;
+    margin: 0 20px
+}
+
+.h_contacts {
+    float: right;
+    color: white;
+    text-align: right;
+}
+
+.h_phone {
+    font-size: 22px;
+}
+
+.h_logos {
+    overflow: hidden;
+    float: right;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.h_logos a {
+    margin-left: 5px;
+    display: block;
+    float: left;
+    border: 1px solid white;
+    border-radius: 100px;
+    width: 35px;
+    height: 35px;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition-duration: 0.3s;
+}
+
+.h_logos a:hover {
+    box-shadow: 0 0 0 2px inset white;
+   
+}
+
+
+
+.h_address {
+    font-size: 15px;
+}
+
+.vk_circle {
+    background-image: url("/static/images/template/VK_logo_no_circle.png");
+}
+
+.facebook_circle {
+    background-image: url("/static/images/template/facebook_logo_no_circle.png");
+}
+
+.instagram_circle {
+    background-image: url("/static/images/template/Instagram_logo_no_circle.png");
+}
+
+.top_pict{
+    height: 235px;
+    background-size: cover;
+    background-image: url(/static/images/template/hg-2.jpg);
+
+}
+.content{
+    margin-top: 40px;
+}
+/*--------END_HEADER-----------*/

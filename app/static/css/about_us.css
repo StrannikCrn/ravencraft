@@ -1,0 +1,60 @@
+
+
+.header_circles {
+    display: none;
+}
+
+.top_text {
+
+    font-size: 16px;
+    line-height: 20px;
+    padding: 25px 25px 25px 0;
+}
+
+.dude_text {
+    margin-bottom: 10px;
+    float: left;
+    width: 75%;
+    margin-top: 20px;
+}
+
+.dude_photo {
+    border-radius: 100px
+}
+
+.two_dudes {
+}
+
+.left_img {
+    float: left;
+    margin-right: 20px;
+}
+
+.right_img {
+    margin-left: 20px;
+}
+.dude{
+    margin-bottom: 70px;
+}
+.with_photo_block{
+    background-image: url('/static/images/about_us/1920w_people_at_work.jpg');
+    color: white;
+    text-align: center;
+    height: 400px;
+    background-size: cover;
+    background-position-y: -70px;
+    position: relative;
+}
+.with_photo_block p{
+    padding-top: 200px;
+}
+.bot_text{
+    padding: 80px 0 0 0;
+}
+.bot_text p{
+    margin-bottom: 20px;
+}
+
+.top_pict {
+    background-image: url("/static/images/about_us/HTI_about_us_1920x470.jpg");
+}

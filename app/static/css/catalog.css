@@ -1,0 +1,126 @@
+.groups {
+    overflow: hidden
+}
+.beer_list{
+    margin-bottom: 200px;
+}
+.beer_group {
+    float: left;
+    margin-right: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+}
+.sub_groups{
+    margin-left: 5px;
+}
+.without_corner {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    color: black;
+    text-decoration: none;
+}
+
+.without_corner.current .beer_group_inner, .without_corner.current .wc_inner {
+    background: #C6A12C;
+}
+
+.without_corner:not(.current):before {
+    width: calc(100% - 20%);
+    height: calc(100% + 2px);
+    top: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    background: #C6A12C;
+}
+
+.without_corner:not(.current):hover:before {
+    width: calc(100% - 20%);
+    height: calc(100% + 4px);
+    top: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    background: #C6A12C;
+}
+
+.without_corner:not(.current)::before,
+.without_corner:not(.current)::after {
+    content: '';
+    position: absolute;
+    background: #C6A12C;
+}
+
+.without_corner:not(.current):hover::after {
+    height: calc(100% - 20%);
+    width: calc(100% + 4px);
+    left: -2px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    background: #C6A12C;
+}
+
+.without_corner:not(.current):after {
+    height: calc(100% - 20%);
+    width: calc(100% + 2px);
+    left: -1px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    background: #C6A12C;
+}
+
+.group_br {
+    background-color: #D4A107;
+}
+
+.beer_group img {
+    width: 50px;
+    float: left;
+
+}
+
+.beer_group p {
+    font-size: 45px;
+    margin-left: 10px;
+    display: inline-block;
+    color: black;
+}
+
+.wc_inner {
+    z-index: 5;
+    position: relative;
+    background-color: white;
+}
+.sub_name{
+    padding: 5px 25px;
+    font-size: 30px;
+}
+.sub_group{
+    margin-right: 20px;
+    margin-top: 20px;
+}
+.beer_group_inner {
+    z-index: 5;
+    position: relative;
+    margin: 0;
+    padding: 5px;
+    background-color: white;
+}
+
+.top_pict {
+    background-image: url(/static/images/catalogue/HTI_catalogue_1920x470.jpg);
+}
+
+.text_sample {
+    margin-left: 12px;
+    margin-top: 10px;
+}
+h2 {
+    margin-left: 12px;
+    
+
+}

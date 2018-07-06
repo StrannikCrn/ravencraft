@@ -1,0 +1,246 @@
+/*-------BOTTLES-----------*/
+.bottle_hint{
+    position: absolute;
+    top: 40px;
+    background-color: white;
+    border: 1px solid #D4A107;
+    padding: 15px;
+    left: 400px;
+    opacity: 0;
+    transition-duration: 0.3s;
+}
+.drink_from:hover .bottle_hint{
+    opacity: 1;
+}
+.bottle_hint:hover {
+    opacity: 0!important;
+}
+.bottle_hint img{
+    width: 150px;
+    display: block;
+    float: left;
+}
+.bottle_hint p{
+        font-size: 15px;
+    width: 300px;
+    float: left;
+}
+.bottle_light {
+    opacity: 0;
+    transition-duration: 0.3s;
+    position: absolute;
+    top: 0;
+}
+
+.bottle.hovered  .bottle_light {
+    opacity: 1;
+}
+
+.bottle.hovered img {
+    width: 103px;
+    height: 265px;
+}
+
+.bottle img {
+    transition-duration: 0.3s;
+    width: 95.2px;
+    height: 245px;
+}
+
+.bottle.hovered {
+    margin: 0px;
+    margin-left: 1px;
+}
+.bottle_fake{
+    height:249px;
+}
+.bottles {
+    left: 0;
+    white-space: nowrap;
+    display: inline-block;
+    position: relative;
+    transition-duration: 0.5s;
+}
+
+.bottles_wr {
+    width: 90%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.bottle {
+    position: relative;
+    display: inline-block;
+    margin: 20px 0px;
+    margin-left: 1px;
+    width: 103px;
+    transition-duration: 0.3s;
+    vertical-align: middle;
+}
+
+.bottle_descritions {
+    position: relative;
+    height: 261px;
+}
+
+.bottle_text {
+    width: calc(50% - 50px);
+    margin-top: -5px;
+    float: left;
+    margin-left: 50px;
+}
+
+.arr_left {
+    position: absolute;
+    z-index: 1;
+    top: 150px;
+    left: 0;
+    cursor: pointer;
+    opacity: 0.5;
+    transition-duration: 0.3s;
+}
+
+.arr_left:hover {
+    opacity: 1;
+}
+
+.arr_right {
+    position: absolute;
+    z-index: 1;
+    top: 150px;
+    right: 0;
+    cursor: pointer;
+    opacity: 0.5;
+    transition-duration: 0.3s;
+}
+
+.arr_right:hover {
+    opacity: 1;
+}
+
+.sostav span {
+    margin-left: 50px
+}
+
+.sostav {
+    clear: both;
+    margin-left: 5px;
+}
+.bottle_desc_item.list{
+    position: relative;
+    opacity: 1;
+}
+.bottle_wr:hover{
+    background-color: #F5EFE1;
+}
+.bottle_wr{
+    overflow: hidden;
+    margin-top: 30px;
+    padding: 15px;
+}
+.bottle_wr img{
+    float: left;
+}
+.bottle_wr .bottle_desc_item{
+    float: left;
+    width: 85%;
+    margin-top: 30px;
+}
+.bottle_desc_item {
+    overflow: hidden;
+    opacity: 0;
+    transition-duration: 0.5s;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.bottle_name {
+    font-size: 40px;
+    font-weight: normal;
+}
+
+.desc_table {
+    width: 50%;
+    border-bottom: 1px solid #D4A107;
+    border-top: 1px solid #D4A107;
+    overflow: hidden;
+    float: left;
+}
+
+.properties {
+    width: 45%;
+    float: left;
+}
+
+.bottle_property {
+    border-bottom: 1px solid #D4A107;
+    padding-left: 4px;
+    padding-bottom: 5px;
+    overflow: hidden;
+}
+
+.bottle_property:last-of-type {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.propery_name {
+    float: left;
+    font-size: 18px;
+}
+
+.prop_circles {
+    float: right;
+    overflow: hidden;
+    margin-right: 25px;
+    margin-top: 7px;
+}
+
+.prop_circle {
+    width: 13px;
+    border: 1px solid #B28300;
+    height: 13px;
+    border-radius: 100px;
+    float: left;
+    margin-left: 3px;
+}
+
+.circle_full {
+    background-color: #B28300;
+}
+
+.circle_last {
+}
+
+.second_properties {
+    width: calc(53% - 1px);
+    float: right;
+    margin-left: 2%;
+    margin: 10px 0;
+    border-left: 1px solid #D4A107;
+}
+
+.second_prop {
+    font-size: 33px;
+    margin-left: 10px;
+    margin-top: 1px;
+    margin-bottom: 11px;
+    border-bottom: 1px solid #D4A107;
+    overflow: hidden;
+    padding-bottom: 4px;
+    padding-top: 2px;
+}
+
+.second_prop > div {
+    border-left: 1px solid #D4A107;
+}
+
+.second_prop > div:first-of-type {
+    border-left: none;
+}
+
+.second_prop:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+}

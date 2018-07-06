@@ -1,0 +1,237 @@
+{% extends 'app/second_template.html' %}
+{% load staticfiles %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/second_template.css' %}">
+    <link rel="stylesheet" href="{% static 'css/news.css' %}">
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <script>
+        var page = 1;
+        $(document).ready(function () {
+
+            $(".need_to_hide").each(function () {
+                $(".show_more_btn").hide()
+            })
+            $(".show_more_btn").click(function () {
+                page++;
+                $.get("/get_news", {"p": page}, function (data) {
+                    if (data == "") {
+                        $(".show_more_btn").hide();
+                    }
+                    else {
+                        $(".news_list").append(data);
+                    }
+                    $(".need_to_hide").each(function () {
+                        $(".show_more_btn").hide()
+                    })
+                })
+            })
+        })
+    </script>
+{% endblock %}
+
+{% block main %}
+    <article>
+        <div class="top_pict"></div>
+
+        <div class="content mw">
+            <div class="art_label palker mw">
+                <div class="vinete">
+                    <div class="vinete_inner"></div>
+                </div>
+
+                <h1>Новости и статьи</h1>
+            </div>
+            <div class="news_list segoe">
+                <div class="news_block">
+                    {% if need_to_hide %}
+                        <div class="need_to_hide"></div>
+                    {% endif %}
+                    {% for news_item in news_list %}
+                        {% if forloop.counter == 1 %}
+                            <div class="col2">
+                                <a href="{{ news_item.url }}" class="news_item"
+                                   style='background-image: url("{{ news_item.image.url }}")'>
+                                    <div class="light_box">
+                                        <div class="oh">
+                                            <p class="category">{{ news_item.category }}</p>
+                                            <p class="date">{{ news_item.date }}</p>
+                                        </div>
+                                        <div class="bottom_block">
+                                            <b>{{ news_item.name }}</b>
+                                            <div class="desc_wr">
+                                                <p>{{ news_item.short_description }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        {% endif %}
+                        {% if forloop.counter == 2 %}
+                            <div class="col4">
+                                <a href="{{ news_item.url }}" class="news_item"
+                                   style='background-image: url("{{ news_item.image.url }}")'>
+                                    <div class="light_box">
+                                        <div class="oh">
+                                            <p class="category">{{ news_item.category }}</p>
+                                            <p class="date">{{ news_item.date }}</p>
+                                        </div>
+                                        <div class="bottom_block">
+                                            <b>{{ news_item.name }}</b>
+                                            <div class="desc_wr">
+                                                <p>{{ news_item.short_description }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        {% endif %}
+                        {% if forloop.counter == 3 %}
+                            <div class="col4">
+                                <a href="{{ news_item.url }}" class="news_item"
+                                   style='background-image: url("{{ news_item.image.url }}")'>
+                                    <div class="light_box">
+                                        <div class="oh">
+                                            <p class="category">{{ news_item.category }}</p>
+                                            <p class="date">{{ news_item.date }}</p>
+                                        </div>
+                                        <div class="bottom_block">
+                                            <b>{{ news_item.name }}</b>
+                                            <div class="desc_wr">
+                                                <p>{{ news_item.short_description }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        {% endif %}
+                        {% if forloop.counter == 4 %}
+                            <div class="col4">
+                                <a href="{{ news_item.url }}" class="news_item"
+                                   style='background-image: url("{{ news_item.image.url }}")'>
+                                    <div class="light_box">
+                                        <div class="oh">
+                                            <p class="category">{{ news_item.category }}</p>
+                                            <p class="date">{{ news_item.date }}</p>
+                                        </div>
+                                        <div class="bottom_block">
+                                            <b>{{ news_item.name }}</b>
+                                            <div class="desc_wr">
+                                                <p>{{ news_item.short_description }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        {% endif %}
+                        {% if forloop.counter ==  5 %}
+                            <div class="col2">
+                                <a href="{{ news_item.url }}" class="news_item"
+                                   style='background-image: url("{{ news_item.image.url }}")'>
+                                    <div class="light_box">
+                                        <div class="oh">
+                                            <p class="category">{{ news_item.category }}</p>
+                                            <p class="date">{{ news_item.date }}</p>
+                                        </div>
+                                        <div class="bottom_block">
+                                            <b>{{ news_item.name }}</b>
+                                            <div class="desc_wr">
+                                                <p>{{ news_item.short_description }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        {% endif %}
+                        {% if forloop.counter == 6 %}
+                            <div class="col4">
+                                <a href="{{ news_item.url }}" class="news_item"
+                                   style='background-image: url("{{ news_item.image.url }}")'>
+                                    <div class="light_box">
+                                        <div class="oh">
+                                            <p class="category">{{ news_item.category }}</p>
+                                            <p class="date">{{ news_item.date }}</p>
+                                        </div>
+                                        <div class="bottom_block">
+                                            <b>{{ news_item.name }}</b>
+                                            <div class="desc_wr">
+                                                <p>{{ news_item.short_description }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        {% endif %}
+                        {% if forloop.counter ==  7 %}
+                            <div class="col2">
+                                <a href="{{ news_item.url }}" class="news_item"
+                                   style='background-image: url("{{ news_item.image.url }}")'>
+                                    <div class="light_box">
+                                        <div class="oh">
+                                            <p class="category">{{ news_item.category }}</p>
+                                            <p class="date">{{ news_item.date }}</p>
+                                        </div>
+                                        <div class="bottom_block">
+                                            <b>{{ news_item.name }}</b>
+                                            <div class="desc_wr">
+                                                <p>{{ news_item.short_description }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        {% endif %}
+                        {% if forloop.counter ==  8 %}
+                            <div class="col4">
+                                <a href="{{ news_item.url }}" class="news_item"
+                                   style='background-image: url("{{ news_item.image.url }}")'>
+                                    <div class="light_box">
+                                        <div class="oh">
+                                            <p class="category">{{ news_item.category }}</p>
+                                            <p class="date">{{ news_item.date }}</p>
+                                        </div>
+                                        <div class="bottom_block">
+                                            <b>{{ news_item.name }}</b>
+                                            <div class="desc_wr">
+                                                <p>{{ news_item.short_description }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        {% endif %}
+                        {% if forloop.counter ==  9 %}
+                            <div class="col4">
+                                <a href="{{ news_item.url }}" class="news_item"
+                                   style='background-image: url("{{ news_item.image.url }}")'>
+                                    <div class="light_box">
+                                        <div class="oh">
+                                            <p class="category">{{ news_item.category }}</p>
+                                            <p class="date">{{ news_item.date }}</p>
+                                        </div>
+                                        <div class="bottom_block">
+                                            <b>{{ news_item.name }}</b>
+                                            <div class="desc_wr">
+                                                <p>{{ news_item.short_description }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="show_more_btn segoe">
+                <div class="show_more_btn_inner">
+                    <img alt="more" src="{% static 'images/news/refresh.png' %}"/>
+                    <p>Показать больше</p>
+                </div>
+            </div>
+        </div>
+
+    </article>
+{% endblock %}

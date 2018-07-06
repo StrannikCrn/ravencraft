@@ -1,0 +1,84 @@
+#contacts_info {
+    position: absolute;
+    top: 200px;
+    left: 150px;
+}
+
+.header {
+    height: auto;
+}
+
+#map {
+    height: 100%
+}
+
+.contacts_wrapper {
+    position: relative;
+    height: 900px;
+}
+
+.contacts_form {
+    display: inline-block;
+    background-color: rgba(1, 1, 1, 1);
+    color: white;
+    opacity: 0.8;
+    transition-duration: 0.3s;
+    padding: 0 10px;
+    margin-top: 25px;
+    margin-left: 10px;
+}
+
+.contacts_form:hover {
+    opacity: 1;
+}
+
+.contacts_form a {
+    color: white;
+    text-decoration: none;
+}
+
+.c_form_block {
+    border-bottom: 1px solid;
+    padding: 20px 5px
+}
+
+.c_form_block:last-of-type {
+    border-bottom: none
+}
+
+.c_form_block p {
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.vinete_wr {
+    position: absolute;
+    top: 150px;
+    width: 100%;
+}
+
+.c_form_block textarea {
+    width: 350px;
+    height: 100px;
+    background-color: gray;
+    color: #000;
+    resize: none;
+    cursor: pointer;
+}
+
+.write_us_btn {
+    float: right;
+    border: 1px solid;
+    cursor: pointer;
+    transition-duration: 0.3s;
+    background-color: rgba(255, 255, 255, 0);
+    padding: 5px 30px;
+    margin-top: 15px;
+}
+
+.write_us_btn:hover {
+    color: black;
+    background-color: rgb(255, 255, 255);
+    border-color: white;
+
+}

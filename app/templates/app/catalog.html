@@ -1,0 +1,148 @@
+{% extends 'app/second_template.html' %}
+{% load staticfiles %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/second_template.css' %}">
+    <link rel="stylesheet" href="{% static 'css/catalog.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bottles.css' %}">
+
+    <script>
+        $(document).ready(function () {
+            $(".sub_group").click(function () {
+                if (!$(this).hasClass("current")) {
+                    var cur_group = $(".cur_group").html();
+                    var url = $(this).find(".url").html();
+                    $(".sub_groups").find(".current").removeClass("current");
+                    $(this).addClass("current");
+                    $("#loading").removeClass("hidden");
+                    var params = cur_group + "/" + url;
+                    setTimeout(function () {
+                        $.get("/get_sorts/" + params, function (data) {
+                            $(".beer_list").html(data);
+                            $("#loading").addClass("hidden");
+                        });
+                    }, 1000)
+
+                }
+            });
+        })
+
+    </script>
+{% endblock %}
+
+{% block main %}
+    <article>
+        <div class="top_pict"></div>
+        <div class="content mw">
+            <div class="art_label palker mw">
+                <div class="vinete">
+                    <div class="vinete_inner"></div>
+                </div>
+                <h1>Наши сорта</h1>
+            </div>
+            <div id="list" class="groups">
+                {% for group in groups %}
+                    {% if group.current %}
+                        <a href="/nashi-sorta/{{ group.url }}/all#list" class="beer_group without_corner current">
+                            <div class="beer_group_inner">
+                                <img src="{{ group.image.url }}">
+                                <p class="palker">{{ group.name }}</p>
+                            </div>
+                        </a>
+                    {% else %}
+                        <a href="/nashi-sorta/{{ group.url }}/all#list" class="beer_group without_corner">
+                            <div class="beer_group_inner">
+                                <img src="{{ group.image2.url }}">
+                                <p class="palker">{{ group.name }}</p>
+                            </div>
+                        </a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class="sub_groups palker">
+                {% for group in sub_groups %}
+                    {% if group.current %}
+                        <div class="sub_group without_corner current">
+                            <div class="wc_inner sub_name">{{ group.name }}</div>
+                        </div>
+                    {% else %}
+                        <div class="sub_group without_corner">
+                            <div class="hidden url">{{ group.url }}</div>
+                            <div class="wc_inner sub_name">{{ group.name }}</div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class="cur_group hidden">{{ cur_group.url }}</div>
+            <div class="pr">
+                <div class="beer_list">
+                    {% for bottle in bottles %}
+                        <div class="bottle_wr">
+                            <img alt="{{ bottle.name }}" src="{{ bottle.image_index.url }}"/>
+                            <div id="desc_bottle{{ forloop.counter }}" class="list bottle_desc_item">
+                                <h3 class="bottle_name palker">{{ bottle.name }}</h3>
+                                <div class="desc_table">
+                                    <div class="properties">
+                                        {% for prop in bottle.properties.all %}
+                                            <div class="bottle_property">
+                                                <p class="propery_name segoe">{{ prop }} </p>
+                                                <div class="prop_circles">
+                                                    {% for counter in "xxxxx" %}
+                                                        {% if forloop.counter <= prop.level_id.value %}
+                                                            <div class="prop_circle circle_full"></div>
+                                                        {% else %}
+                                                            <div class="prop_circle"></div>
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="second_properties palker">
+                                        <div class="second_prop"><p>С чем пить:<span
+                                                class="palker_light"> {{ bottle.drink_with }}</span>
+                                        </p>
+                                        </div>
+                                        <div class="second_prop">
+                                            <div class="col2_border w60 drink_from"><p>Из чего пить:<span
+                                                    class="palker_light"> {{ bottle.drink_from }}</span></p>
+                                                {% if bottle.drink_from.image %}
+                                                    <div class="segoe bottle_hint">
+                                                        <img src="{{ bottle.drink_from.image.url }}"/>
+                                                        <p>{{ bottle.drink_from.text }}</p>
+                                                    </div>
+                                                {% endif %}
+                                            </div>
+                                            <div class="col2_border w40"><p class="pl10">Пить при:<span
+                                                    class="palker_light"> {{ bottle.temperature }}С</span>
+                                            </p>
+                                            </div>
+                                        </div>
+                                        <div class="second_prop">
+                                            <div class="col3_border"><p>ABV: {{ bottle.ABV }}%</p></div>
+                                            <div class="col3_border"><p class="pl10">OG: {{ bottle.OG }}%</p></div>
+                                            <div class="col3_border"><p class="pl10">IBU: {{ bottle.IBU }}</p></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bottle_text segoe">
+                                    <p> {{ bottle.text }} </p>
+                                </div>
+                                <p class="sostav segoe"><b>Состав:</b><span>{{ bottle.composition }}</span></p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div id="loading" class="dark_box hidden">
+                    <div class="loading">
+                        <img alt="" class="bottle_l1" src="{% static 'images/catalogue/bottle1.png' %}">
+                        <img alt="" class="bottle_l2" src="{% static 'images/catalogue/bottle2.png' %}">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mw segoe art_text">
+            {{ cur_group.text|safe }}
+        </div>
+    </article>
+{% endblock %}

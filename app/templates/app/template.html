@@ -1,0 +1,68 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/template.css' %}">
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    {% block head %}
+    {% endblock %}
+</head>
+<body>
+<header>
+    {% block header %}
+    {% endblock %}
+</header>
+<main>
+    {% block main %}
+    {% endblock %}
+</main>
+<footer class="pr">
+    <div class="b_shadowbox">
+        <div class="bot_circles"></div>
+        <div class="mw">
+            <img class="f_logo" src="{% static 'images/template/Raven_logo.png' %}"/>
+            <div class="f_sorts segoe">
+                <div class="f_label palker">Наши сорта</div>
+                <div class="f_sorst_column">
+                    {% for bottle in bottles %}
+                        <a href="/nashi-sorta/pivo/all#{{ bottle.sub_name }}">{{ bottle.name }}</a>
+                    {% endfor %}
+                </div>
+                <div class="f_btns oh">
+                    <p class="distr"><b>Дистрибьюторам</b></p>
+                    <p class="opt"><b>Оптовым клиентам</b></p>
+                </div>
+                <div class="f_copyright">Все права защищены 2018</div>
+            </div>
+            <div class="f_news segoe">
+                <div class="f_label palker">Новости и статьи</div>
+                <div class="f_news_list">
+                    {% for news in f_news %}
+                        <a href="/novosti-i-stati/{{ news.url }}">{{ news.name }}</a>
+                    {% endfor %}
+                </div>
+                <div class="up_circles"></div>
+                <div class="bot_circles"></div>
+                <div class="f_contacts">
+                    <div class="f_label palker">Контакты</div>
+                    <div class="f_contact_block segoe">
+                        <p class="f_cellphone">+7 (920) 467-65-08</p>
+                        <p class="f_address">г. Воронеж, Ленинский пр-т 158/3</p>
+                        <div class="f_logos">
+                            <a href="" class="vk_circle"></a>
+                            <a href="" class="facebook_circle"></a>
+                            <a href="" class="instagram_circle"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

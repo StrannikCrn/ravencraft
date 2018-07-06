@@ -1,0 +1,57 @@
+{% extends 'app/template.html' %}
+{% load staticfiles %}
+
+{% block header %}
+       <div class="header">
+        <div class="mw header_inner">
+            <a class="h_logo" href="/">
+                <img src="{% static 'images/template/Raven_logo.png' %}"/>
+            </a>
+            <nav class="h_nav palker">
+                <div class="h_nav_item">
+                    <a href="/o-nas">О пивоварне</a>
+                    <div class="h_underline"></div>
+                </div>
+                <div class="h_circle_wrapper">
+                    <div class="h_circle"></div>
+                </div>
+                <div class="h_nav_item">
+                    <a href="/nashi-sorta/pivo/all">Наши сорта</a>
+                    <div class="h_underline"></div>
+                </div>
+                <div class="h_circle_wrapper">
+                    <div class="h_circle"></div>
+                </div>
+                <div class="h_nav_item">
+                    <a href="/gde-kupit">Где купить</a>
+                    <div class="h_underline"></div>
+                </div>
+                <div class="h_circle_wrapper">
+                    <div class="h_circle"></div>
+                </div>
+                <div class="h_nav_item">
+                    <a href="/novosti-i-stati">Новости и статьи</a>
+                    <div class="h_underline"></div>
+                </div>
+                <div class="h_circle_wrapper">
+                    <div class="h_circle"></div>
+                </div>
+                <div class="h_nav_item">
+                    <a href="/kontakty">Контакты</a>
+                    <div class="h_underline"></div>
+                </div>
+            </nav>
+            <div class="h_contacts segoe">
+                <p class="h_phone">+7-473-239-20-20</p>
+                <p class="h_address">г. Воронеж, ул. Остужева, д. 157</p>
+                <div class="h_logos">
+                    <a href="" class="vk_circle"></a>
+                    <a href="" class="facebook_circle"></a>
+                    <a href="" class="instagram_circle"></a>
+                </div>
+            </div>
+        </div>
+        <div class="up_circles"></div>
+
+    </div>
+{% endblock %}

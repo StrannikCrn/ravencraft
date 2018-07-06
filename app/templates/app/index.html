@@ -1,0 +1,423 @@
+{% extends 'app/template.html' %}
+{% load staticfiles %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bottles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/news.css' %}">
+
+    <script type="text/javascript" src="{% static 'js/bottles.js' %}"></script>
+{% endblock %}
+
+{% block header %}
+    <div class="header">
+        <div class="mw header_inner">
+            <a class="h_logo" href="/">
+                <img src="{% static 'images/template/Raven_logo.png' %}"/>
+                <p class="underlogo_text">Сварено в Воронеже</p>
+                <p class="underlogo_text2">Сварено с любовью</p>
+            </a>
+
+            <nav class="h_nav palker">
+                <div class="h_nav_item">
+                    <a href="/o-nas">О пивоварне</a>
+                    <div class="h_underline"></div>
+                </div>
+                <div class="h_circle_wrapper">
+                    <div class="h_circle"></div>
+                </div>
+                <div class="h_nav_item">
+                    <a href="/nashi-sorta/pivo/all">Наши сорта</a>
+                    <div class="h_underline"></div>
+                </div>
+                <div class="h_circle_wrapper">
+                    <div class="h_circle"></div>
+                </div>
+                <div class="h_nav_item">
+                    <a href="/gde-kupit">Где купить</a>
+                    <div class="h_underline"></div>
+                </div>
+                <div class="h_circle_wrapper">
+                    <div class="h_circle"></div>
+                </div>
+                <div class="h_nav_item">
+                    <a href="/novosti-i-stati">Новости и статьи</a>
+                    <div class="h_underline"></div>
+                </div>
+                <div class="h_circle_wrapper">
+                    <div class="h_circle"></div>
+                </div>
+                <div class="h_nav_item">
+                    <a href="/kontakty">Контакты</a>
+                    <div class="h_underline"></div>
+                </div>
+            </nav>
+            <div class="h_contacts segoe">
+                <p class="h_phone">+7-473-239-20-20</p>
+                <p class="h_address">г. Воронеж, ул. Остужева, д. 157</p>
+                <div class="h_logos">
+                    <a href="" class="vk_circle"></a>
+                    <a href="" class="facebook_circle"></a>
+                    <a href="" class="instagram_circle"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block main %}
+    <article class="pr">
+        <div class="big_block ">
+            <h1 class="palker">Делаем крафтовое пиво в Воронеже из натуральных продуктов</h1>
+            <div class="show_btn segoe"> Посмотреть</div>
+        </div>
+        <div class="up_circles"></div>
+    </article>
+    <article class="mw pr">
+        <div class="art_label palker">
+            <div class="vinete">
+                <div class="vinete_inner"></div>
+            </div>
+            <h2>Ассортимент пивоварни</h2>
+        </div>
+        <img class="arr_left" src="{% static 'images/index/arr_left.png' %}">
+        <div class="oh bottles_wr">
+            <div class="bottles">
+                {% for bottle in bottles %}
+                    <div id="bottle{{ forloop.counter }}" class="bottle">
+                        <img class="bottle_light" src="{{ bottle.image_index.url }}"/>
+                        <img src="{{ bottle.image_index_dark.url }}"/>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <img class="arr_right" src="{% static 'images/index/arr_right.png' %}">
+
+        <div class="bottle_descritions">
+            {% for bottle in bottles %}
+                {% if forloop.counter == 1 %}
+                    <div id="desc_bottle{{ forloop.counter }}" class="bottle_desc_item op1">
+                {% else %}
+                    <div id="desc_bottle{{ forloop.counter }}" class="bottle_desc_item">
+                {% endif %}
+            <h3 class="bottle_name palker">{{ bottle.name }}</h3>
+            <div class="desc_table">
+                <div class="properties">
+                    {% for prop in bottle.properties.all %}
+                        <div class="bottle_property">
+                            <p class="propery_name segoe">{{ prop }} </p>
+                            <div class="prop_circles">
+                                {% for counter in "xxxxx" %}
+                                    {% if forloop.counter <= prop.level_id.value %}
+                                        <div class="prop_circle circle_full"></div>
+                                    {% else %}
+                                        <div class="prop_circle"></div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="second_properties palker">
+                    <div class="second_prop"><p>С чем пить:<span class="palker_light"> {{ bottle.drink_with }}</span>
+                    </p>
+                    </div>
+                    <div class="second_prop">
+                        <div class="col2_border w60 drink_from"><p>Из чего пить:<span
+                                class="palker_light"> {{ bottle.drink_from }}</span></p>
+                            {% if bottle.drink_from.image %}
+                                <div class="segoe bottle_hint">
+                                    <img src="{{ bottle.drink_from.image.url }}"/>
+                                    <p>{{ bottle.drink_from.text }}</p>
+                                </div>
+                            {% endif %}
+                        </div>
+                        <div class="col2_border w40"><p class="pl10">Пить при:<span
+                                class="palker_light"> {{ bottle.temperature }}С</span>
+                        </p>
+                        </div>
+                    </div>
+                    <div class="second_prop">
+                        <div class="col3_border"><p>ABV: {{ bottle.ABV }}%</p></div>
+                        <div class="col3_border"><p class="pl10">OG: {{ bottle.OG }}%</p></div>
+                        <div class="col3_border"><p class="pl10">IBU: {{ bottle.IBU }}</p></div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottle_text segoe">
+                <p> {{ bottle.text }} </p>
+            </div>
+            <p class="sostav segoe"><b>Состав:</b><span>{{ bottle.composition }}</span></p>
+            </div>
+            {% endfor %}
+            </div>
+    </article>
+    <article class="mw">
+        <div class="art_label palker">
+            <div class="vinete">
+                <div class="vinete_inner"></div>
+            </div>
+            <h2>Свежие новости и статьи</h2>
+        </div>
+        <div class="news_list segoe">
+            <div class="news_block">
+                {% for news_item in news %}
+                    {% if forloop.counter == 1 %}
+                        <div class="col2">
+                            <a href="/novosti-i-stati/{{ news_item.url }}" class="news_item"
+                               style='background-image: url("{{ news_item.image.url }}")'>
+                                <div class="light_box">
+                                    <div class="oh">
+                                        <p class="category">{{ news_item.category }}</p>
+                                        <p class="date">{{ news_item.date }}</p>
+                                    </div>
+                                    <div class="bottom_block">
+                                        <b>{{ news_item.name }}</b>
+                                        <div class="desc_wr">
+                                            <p>{{ news_item.short_description }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    {% endif %}
+                    {% if forloop.counter == 2 %}
+                        <div class="col4">
+                            <a href="/novosti-i-stati/{{ news_item.url }}" class="news_item"
+                               style='background-image: url("{{ news_item.image.url }}")'>
+                                <div class="light_box">
+                                    <div class="oh">
+                                        <p class="category">{{ news_item.category }}</p>
+                                        <p class="date">{{ news_item.date }}</p>
+                                    </div>
+                                    <div class="bottom_block">
+                                        <b>{{ news_item.name }}</b>
+                                        <div class="desc_wr">
+                                            <p>{{ news_item.short_description }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    {% endif %}
+                    {% if forloop.counter == 3 %}
+                        <div class="col4">
+                            <a href="/novosti-i-stati/{{ news_item.url }}" class="news_item"
+                               style='background-image: url("{{ news_item.image.url }}")'>
+                                <div class="light_box">
+                                    <div class="oh">
+                                        <p class="category">{{ news_item.category }}</p>
+                                        <p class="date">{{ news_item.date }}</p>
+                                    </div>
+                                    <div class="bottom_block">
+                                        <b>{{ news_item.name }}</b>
+                                        <div class="desc_wr">
+                                            <p>{{ news_item.short_description }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    {% endif %}
+                    {% if forloop.counter == 4 %}
+                        <div class="col4">
+                            <a href="/novosti-i-stati/{{ news_item.url }}" class="news_item"
+                               style='background-image: url("{{ news_item.image.url }}")'>
+                                <div class="light_box">
+                                    <div class="oh">
+                                        <p class="category">{{ news_item.category }}</p>
+                                        <p class="date">{{ news_item.date }}</p>
+                                    </div>
+                                    <div class="bottom_block">
+                                        <b>{{ news_item.name }}</b>
+                                        <div class="desc_wr">
+                                            <p>{{ news_item.short_description }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    {% endif %}
+                    {% if forloop.counter ==  5 %}
+                        <div class="col2">
+                            <a href="/novosti-i-stati/{{ news_item.url }}" class="news_item"
+                               style='background-image: url("{{ news_item.image.url }}")'>
+                                <div class="light_box">
+                                    <div class="oh">
+                                        <p class="category">{{ news_item.category }}</p>
+                                        <p class="date">{{ news_item.date }}</p>
+                                    </div>
+                                    <div class="bottom_block">
+                                        <b>{{ news_item.name }}</b>
+                                        <div class="desc_wr">
+                                            <p>{{ news_item.short_description }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    {% endif %}
+                    {% if forloop.counter == 6 %}
+                        <div class="col4">
+                            <a href="/novosti-i-stati/{{ news_item.url }}" class="news_item"
+                               style='background-image: url("{{ news_item.image.url }}")'>
+                                <div class="light_box">
+                                    <div class="oh">
+                                        <p class="category">{{ news_item.category }}</p>
+                                        <p class="date">{{ news_item.date }}</p>
+                                    </div>
+                                    <div class="bottom_block">
+                                        <b>{{ news_item.name }}</b>
+                                        <div class="desc_wr">
+                                            <p>{{ news_item.short_description }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    {% endif %}
+                    {% if forloop.counter ==  7 %}
+                        <div class="col2">
+                            <a href="/novosti-i-stati/{{ news_item.url }}" class="news_item"
+                               style='background-image: url("{{ news_item.image.url }}")'>
+                                <div class="light_box">
+                                    <div class="oh">
+                                        <p class="category">{{ news_item.category }}</p>
+                                        <p class="date">{{ news_item.date }}</p>
+                                    </div>
+                                    <div class="bottom_block">
+                                        <b>{{ news_item.name }}</b>
+                                        <div class="desc_wr">
+                                            <p>{{ news_item.short_description }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    {% endif %}
+                    {% if forloop.counter ==  8 %}
+                        <div class="col4">
+                            <a href="/novosti-i-stati/{{ news_item.url }}" class="news_item"
+                               style='background-image: url("{{ news_item.image.url }}")'>
+                                <div class="light_box">
+                                    <div class="oh">
+                                        <p class="category">{{ news_item.category }}</p>
+                                        <p class="date">{{ news_item.date }}</p>
+                                    </div>
+                                    <div class="bottom_block">
+                                        <b>{{ news_item.name }}</b>
+                                        <div class="desc_wr">
+                                            <p>{{ news_item.short_description }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    {% endif %}
+                    {% if forloop.counter ==  9 %}
+                        <div class="col4">
+                            <a href="/novosti-i-stati/{{ news_item.url }}" class="news_item"
+                               style='background-image: url("{{ news_item.image.url }}")'>
+                                <div class="light_box">
+                                    <div class="oh">
+                                        <p class="category">{{ news_item.category }}</p>
+                                        <p class="date">{{ news_item.date }}</p>
+                                    </div>
+                                    <div class="bottom_block">
+                                        <b>{{ news_item.name }}</b>
+                                        <div class="desc_wr">
+                                            <p>{{ news_item.short_description }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        </div>
+    </article>
+    <div class="parallax pr">
+        <div class="bot_circles"></div>
+        <div class="parallax_dark">
+            <div class="mw features">
+                <div class="col4">
+                    <div class="feature_item">
+                        <img alt="" src="{% static 'images/index/features/beer.png' %}"/>
+                        <p class="palker feature_label">Качество прежде всего</p>
+                        <p class="segoe feature_text">Не видим смысла в изготовлении очередного массового продукта, мы
+                            варим
+                            правильное пиво</p>
+                    </div>
+                </div>
+                <div class="col4">
+                    <div class="feature_item">
+                        <img alt="" src="{% static 'images/index/features/beer.png' %}"/>
+                        <p class="palker feature_label">Качество прежде всего</p>
+                        <p class="segoe feature_text">Не видим смысла в изготовлении очередного массового продукта, мы
+                            варим
+                            правильное пиво</p>
+                    </div>
+                </div>
+                <div class="col4">
+                    <div class="feature_item">
+                        <img alt="" src="{% static 'images/index/features/beer.png' %}"/>
+                        <p class="palker feature_label">Качество прежде всего</p>
+                        <p class="segoe feature_text">Не видим смысла в изготовлении очередного массового продукта, мы
+                            варим
+                            правильное пиво</p>
+                    </div>
+                </div>
+                <div class="col4">
+                    <div class="feature_item">
+                        <img alt="" src="{% static 'images/index/features/beer.png' %}"/>
+                        <p class="palker feature_label">Качество прежде всего</p>
+                        <p class="segoe feature_text">Не видим смысла в изготовлении очередного массового продукта, мы
+                            варим
+                            правильное пиво</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="up_circles"></div>
+    </div>
+    <article class="mw class about_block">
+        <div class="art_label palker">
+            <div class="vinete">
+                <div class="vinete_inner"></div>
+            </div>
+            <h2>О компании</h2>
+        </div>
+        <p class="about_text segoe">В частности, внедрение современных методик предполагает независимые способы
+            реализации первоочередных требований. Равным образом, разбавленное изрядной долей эмпатии, рациональное
+            мышление предполагает независимые способы реализации прогресса профессионального сообщества. С учетом
+            сложившейся международной обстановки, укрепление и развитие внутренней структуры позволяет выполнить важные
+            задания по разработке дальнейших направлений развития! В частности, убежденность некоторых оппонентов
+            требует от нас анализа своевременного выполнения сверхзадачи.</p>
+        <p class="about_text segoe">Ясность нашей позиции очевидна: перспективное планирование способствует повышению
+            качества системы массового участия. В рамках спецификации современных стандартов, некоторые особенности
+            внутренней политики ограничены исключительно образом мышления. Для современного мира высокотехнологичная
+            концепция общественного уклада создает предпосылки для системы массового участия. Безусловно, консультация с
+            широким активом предоставляет широкие возможности для системы массового участия. Лишь действия
+            представителей оппозиции лишь добавляют фракционных разногласий и рассмотрены исключительно в разрезе
+            маркетинговых и финансовых предпосылок. Но курс на социально-ориентированный национальный проект однозначно
+            фиксирует необходимость направлений прогрессивного развития!</p>
+        <p class="about_text segoe">С другой стороны, семантический разбор внешних противодействий напрямую зависит от
+            системы обучения кадров, соответствующей насущным потребностям. Лишь предприниматели в сети интернет
+            набирают популярность среди определенных слоев населения, а значит, должны быть описаны максимально
+            подробно. Также как курс на социально-ориентированный национальный проект представляет собой интересный
+            эксперимент проверки направлений прогрессивного развития. Независимые государства освещают чрезвычайно
+            интересные особенности картины в целом, однако конкретные выводы, разумеется, подвергнуты целой серии
+            независимых исследований.</p>
+        <p class="about_text segoe">Внезапно, активно развивающиеся страны третьего мира представляют собой не что иное,
+            как квинтэссенцию победы маркетинга над разумом и должны быть смешаны с неуникальными данными до степени
+            совершенной неузнаваемости, из-за чего возрастает их статус бесполезности. В целом, конечно, начало
+            повседневной работы по формированию позиции требует от нас анализа распределения внутренних резервов и
+            ресурсов. А еще интерактивные прототипы и по сей день остаются уделом либералов, которые жаждут быть
+            функционально разнесены на независимые элементы. Реализация намеченных плановых заданий выявляет срочную
+            потребность соответствующих условий активизации. Таким образом, убежденность некоторых оппонентов создает
+            предпосылки для стандартных подходов. Мы вынуждены отталкиваться от того, что базовый вектор развития
+            говорит о возможностях переосмысления внешнеэкономических политик.</p>
+    </article>
+{% endblock %}

@@ -1,0 +1,87 @@
+{% extends 'app/second_template.html' %}
+{% load staticfiles %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/second_template.css' %}">
+    <link rel="stylesheet" href="{% static 'css/contacts.css' %}">
+    <script type="text/javascript" src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
+    <script>
+        $(document).ready(function () {
+            ymaps.ready(function () {
+                var myMap = new ymaps.Map('map', {
+                    center: [51.686540, 39.263829],
+                    zoom: 16,
+                    controls: []
+                }, {
+                    searchControlProvider: 'yandex#search'
+                })
+
+                myMap.controls.add('zoomControl', {
+                    float: 'none',
+                    position: {
+                        right: 40,
+                        top: 300
+                    }
+                });
+                myMap.behaviors.disable('scrollZoom')
+                var coordinates = [51.686956, 39.267283]
+                var myPlacemark = new ymaps.Placemark(coordinates, {
+                    balloonContent: 'цвет <strong>носика Гены</strong>',
+                    iconCaption: 'Ravencraft'
+                })
+                myMap.geoObjects.add(myPlacemark);
+            });
+        })
+
+    </script>
+{% endblock %}
+
+
+{% block main %}
+    <article>
+        <div class="contacts_wrapper">
+            <div id="map">
+
+            </div>
+            <div class="vinete_wr">
+                <div class="art_label palker mw">
+                    <div class="vinete">
+                        <div class="vinete_inner"></div>
+                    </div>
+                    <h1>Контакты</h1>
+                </div>
+            </div>
+            <div id="contacts_info">
+
+                <div class="contacts_form segoe">
+                    <div class=" c_form_block">
+                        <p><b>Адрес завода:</b> Ленинский просп, 158/3</p>
+                        <p><b>Телефон:</b> +7 (920) 467-65-08</p>
+                        <p><b>E-mail :</b> info@ravencraftbeer.ru</p>
+                        <p><b>Время работы: </b> Пн-Пт 9-00 до 19-00</p>
+                    </div>
+                    <div class="c_form_block">
+                        <p><b>Мы в соц. сетях</b></p>
+                        <div class="c_social">
+                            <a href="https://vk.com/ravencraftbeer"><b>vk.com/ravencraftbeer</b></a>
+                        </div>
+                        <div class="c_social">
+                            <a href="https://facebook.com/ravencraftbeer"><b>facebook.com/ravencraftbeer</b></a>
+                        </div>
+                        <div class="c_social">
+                            <a href="https://www.instagram.com/explore/tags/ravencraft/"><b>Instagram</b></a>
+                        </div>
+                    </div>
+                    <div class="c_form_block">
+                        <p>Напишите нам:</p>
+                        <form>
+                            <textarea></textarea>
+                            <div class="oh">
+                            <div class="write_us_btn"> Отправить</div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+{% endblock %}
