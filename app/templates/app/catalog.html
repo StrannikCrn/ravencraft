@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="{% static 'css/second_template.css' %}">
     <link rel="stylesheet" href="{% static 'css/catalog.css' %}">
     <link rel="stylesheet" href="{% static 'css/bottles.css' %}">
-
+    <script type="text/javascript" src="{% static 'js/bottles.js' %}"></script>
     <script>
         $(document).ready(function () {
             $(".sub_group").click(function () {
@@ -20,6 +20,7 @@
                         $.get("/get_sorts/" + params, function (data) {
                             $(".beer_list").html(data);
                             $("#loading").addClass("hidden");
+                             refeel_props();
                         });
                     }, 1000)
 
@@ -76,8 +77,8 @@
             <div class="cur_group hidden">{{ cur_group.url }}</div>
             <div class="pr">
                 <div class="beer_list">
-                    {% for bottle in bottles %}
-                        <div class="bottle_wr">
+                    {% for bottle in bottles_catalog %}
+                        <div id="{{ bottle.sub_name }}" class="bottle_wr">
                             <img alt="{{ bottle.name }}" src="{{ bottle.image_index.url }}"/>
                             <div id="desc_bottle{{ forloop.counter }}" class="list bottle_desc_item">
                                 <h3 class="bottle_name palker">{{ bottle.name }}</h3>
@@ -89,7 +90,7 @@
                                                 <div class="prop_circles">
                                                     {% for counter in "xxxxx" %}
                                                         {% if forloop.counter <= prop.level_id.value %}
-                                                            <div class="prop_circle circle_full"></div>
+                                                            <div class="prop_circle need_full"><div class="prop_circle inner"></div></div>
                                                         {% else %}
                                                             <div class="prop_circle"></div>
                                                         {% endif %}

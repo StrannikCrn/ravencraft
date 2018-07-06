@@ -1,20 +1,26 @@
 /*-------BOTTLES-----------*/
 .bottle_hint{
     position: absolute;
+    transition:border 0ms 0.3s,padding 0ms 0.3s, height 0ms  0.3s, opacity 0.3s 0ms;
     top: 40px;
     background-color: white;
-    border: 1px solid #D4A107;
-    padding: 15px;
     left: 400px;
     opacity: 0;
-    transition-duration: 0.3s;
+    height: 0;
+    padding: 0px;
+    border: 0px solid #D4A107;
+    overflow: hidden;
+
 }
 .drink_from:hover .bottle_hint{
     opacity: 1;
+    height: 200px;
+    transition:border 0ms 0ms,padding 0ms 0s, height 0ms 0ms, opacity 300ms 0ms;
+    padding: 15px;
+    border: 1px solid #D4A107;
+
 }
-.bottle_hint:hover {
-    opacity: 0!important;
-}
+
 .bottle_hint img{
     width: 150px;
     display: block;
@@ -208,8 +214,14 @@
 
 .circle_full {
     background-color: #B28300;
+    width: 13px!important;
 }
-
+.inner{
+    margin-left: 0px;
+    border: none;
+    width: 0;
+    transition-duration: 0.3s;
+}
 .circle_last {
 }
 

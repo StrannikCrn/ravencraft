@@ -17,8 +17,32 @@ function check_arrows(left_pos) {
         $(".arr_left").show();
     }
 }
+function refeel_props() {
+    $(".prop_circles").each(function () {
+        var elementTop = $(this).offset().top;
+        var elementBottom = elementTop + $(this).outerHeight();
+        var viewportTop = $(window).scrollTop();
+        var viewportBottom = viewportTop + $(window).height();
+        var in_viewport = elementBottom > viewportTop && elementTop < viewportBottom;
+        if(!in_viewport){
+            return;
+        }
+        var seconds = 0;
+            $(this).find(".prop_circle.inner").each(function () {
+                var prop = $(this);
+                setTimeout(function () {
+                    prop.addClass("circle_full");
+                },seconds);
+                seconds += 300;
+            })
+    })
+}
 $(document).ready(function () {
-
+    refeel_props();
+    $(document).scroll(refeel_props);
+    if($(".bottles").length == 0){
+        return
+    }
     $(".arr_left").click(function () {
         var width = $(".bottles_wr").width();
         var left_offset = $(".bottles").offset().left;
@@ -33,6 +57,7 @@ $(document).ready(function () {
         $(".bottles").css("left", left_pos - width);
         check_arrows(left_offset - width);
     });
+
     var left_pos = $(".bottles").offset().left;
     check_arrows(left_pos);
     $(".bottle:not(.bottle_fake)").hover(function () {

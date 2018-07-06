@@ -1,56 +1,58 @@
- {% for bottle in bottles %}
-                    <div class="bottle_wr">
-                        <img src="{{ bottle.image_index.url }}"/>
-                        <div id="desc_bottle{{ forloop.counter }}" class="list bottle_desc_item">
-                            <h3 class="bottle_name palker">{{ bottle.name }}</h3>
-                            <div class="desc_table">
-                                <div class="properties">
-                                    {% for prop in bottle.properties.all %}
-                                        <div class="bottle_property">
-                                            <p class="propery_name segoe">{{ prop }} </p>
-                                            <div class="prop_circles">
-                                                {% for counter in "xxxxx" %}
-                                                    {% if forloop.counter <= prop.level_id.value %}
-                                                        <div class="prop_circle circle_full"></div>
-                                                    {% else %}
-                                                        <div class="prop_circle"></div>
-                                                    {% endif %}
-                                                {% endfor %}
-                                            </div>
+{% for bottle in bottles %}
+    <div class="bottle_wr">
+        <img src="{{ bottle.image_index.url }}"/>
+        <div id="desc_bottle{{ forloop.counter }}" class="list bottle_desc_item">
+            <h3 class="bottle_name palker">{{ bottle.name }}</h3>
+            <div class="desc_table">
+                <div class="properties">
+                    {% for prop in bottle.properties.all %}
+                        <div class="bottle_property">
+                            <p class="propery_name segoe">{{ prop }} </p>
+                            <div class="prop_circles">
+                                {% for counter in "xxxxx" %}
+                                    {% if forloop.counter <= prop.level_id.value %}
+                                        <div class="prop_circle need_full">
+                                            <div class="prop_circle inner"></div>
                                         </div>
-                                    {% endfor %}
-                                </div>
-                                <div class="second_properties palker">
-                                    <div class="second_prop"><p>С чем пить:<span
-                                            class="palker_light"> {{ bottle.drink_with }}</span>
-                                    </p>
-                                    </div>
-                                    <div class="second_prop">
-                                            <div class="col2_border w60 drink_from"><p>Из чего пить:<span
-                                                    class="palker_light"> {{ bottle.drink_from }}</span></p>
-                                                {% if bottle.drink_from.image %}
-                                                    <div class="segoe bottle_hint">
-                                                        <img src="{{ bottle.drink_from.image.url }}"/>
-                                                        <p>{{ bottle.drink_from.text }}</p>
-                                                    </div>
-                                                {% endif %}
-                                            </div>
-                                        <div class="col2_border w40"><p class="pl10">Пить при:<span
-                                                class="palker_light"> {{ bottle.temperature }}С</span>
-                                        </p>
-                                        </div>
-                                    </div>
-                                    <div class="second_prop">
-                                        <div class="col3_border"><p>ABV: {{ bottle.ABV }}%</p></div>
-                                        <div class="col3_border"><p class="pl10">OG: {{ bottle.OG }}%</p></div>
-                                        <div class="col3_border"><p class="pl10">IBU: {{ bottle.IBU }}</p></div>
-                                    </div>
-                                </div>
+                                    {% else %}
+                                        <div class="prop_circle"></div>
+                                    {% endif %}
+                                {% endfor %}
                             </div>
-                            <div class="bottle_text segoe">
-                                <p> {{ bottle.text }} </p>
-                            </div>
-                            <p class="sostav segoe"><b>Состав:</b><span>{{ bottle.composition }}</span></p>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="second_properties palker">
+                    <div class="second_prop"><p>С чем пить:<span
+                            class="palker_light"> {{ bottle.drink_with }}</span>
+                    </p>
+                    </div>
+                    <div class="second_prop">
+                        <div class="col2_border w60 drink_from"><p>Из чего пить:<span
+                                class="palker_light"> {{ bottle.drink_from }}</span></p>
+                            {% if bottle.drink_from.image %}
+                                <div class="segoe bottle_hint">
+                                    <img src="{{ bottle.drink_from.image.url }}"/>
+                                    <p>{{ bottle.drink_from.text }}</p>
+                                </div>
+                            {% endif %}
+                        </div>
+                        <div class="col2_border w40"><p class="pl10">Пить при:<span
+                                class="palker_light"> {{ bottle.temperature }}С</span>
+                        </p>
                         </div>
                     </div>
-                {% endfor %}
+                    <div class="second_prop">
+                        <div class="col3_border"><p>ABV: {{ bottle.ABV }}%</p></div>
+                        <div class="col3_border"><p class="pl10">OG: {{ bottle.OG }}%</p></div>
+                        <div class="col3_border"><p class="pl10">IBU: {{ bottle.IBU }}</p></div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottle_text segoe">
+                <p> {{ bottle.text }} </p>
+            </div>
+            <p class="sostav segoe"><b>Состав:</b><span>{{ bottle.composition }}</span></p>
+        </div>
+    </div>
+{% endfor %}

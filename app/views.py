@@ -160,7 +160,7 @@ def catalog(request, group,sub_group):
             if group_it.url == sub_group:
                 group_it.current = True
     return render(request, 'app/catalog.html', {
-        'bottles': result_bottles,
+        'bottles_catalog': result_bottles,
         'sub_groups': result_subs,
         'groups': all_groups,
         'cur_group': group,

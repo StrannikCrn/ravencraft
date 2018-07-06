@@ -47,7 +47,9 @@
                                     <div class="prop_circles">
                                         {% for counter in "xxxxx" %}
                                             {% if forloop.counter <= prop.level_id.value %}
-                                                <div class="prop_circle circle_full"></div>
+                                                <div class="prop_circle need_full">
+                                                    <div class="prop_circle inner"></div>
+                                                </div>
                                             {% else %}
                                                 <div class="prop_circle"></div>
                                             {% endif %}
