@@ -25,7 +25,7 @@ SECRET_KEY = 'r%m_g*ncy9oxpli3&dku5)u=y=976!v^%7$xg$n(ptbi&)_n(f'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['ravencraft.blackraven.pro','127.0.0.1']
 
 
 # Application definition
