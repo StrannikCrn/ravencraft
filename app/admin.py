@@ -26,6 +26,11 @@ class NewsPhotoInline(admin.TabularInline):
 class BottleAdmin(admin.ModelAdmin):
     save_as = True
     inlines = [BottlePropLevelSpecifInline,BottleTaglSpecifInline]
+    list_display = ('name', 'group')
+    ordering = ('group',)
+    list_filter = (
+        ('group', admin.RelatedOnlyFieldListFilter),
+    )
 
 
 class NewsAdmin(SummernoteModelAdmin):
