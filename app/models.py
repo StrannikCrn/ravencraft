@@ -18,7 +18,7 @@ class News(models.Model):
     date = models.DateTimeField(auto_now_add=True, blank=True, verbose_name="Дата")
     short_description = models.CharField(max_length=255,verbose_name="Короткое описание")
     text = models.TextField(verbose_name="Текст")
-    category = models.ForeignKey(NewsCategory, verbose_name="Категория",related_name="category",on_delete=models.PROTECT)
+    category = models.ForeignKey(NewsCategory, verbose_name="Категория",related_name="category",on_delete=models.SET_NULL, null=True)
     image = models.ImageField(upload_to="app/static/images/news/", verbose_name="Картинка",
                                     null=True)
 
@@ -36,7 +36,7 @@ class News(models.Model):
 
 
 class NewsPhotoSpecif(models.Model):
-    news_item = models.ForeignKey(News,related_name="gallery_photos",verbose_name="Фото в галлерею",on_delete=models.PROTECT)
+    news_item = models.ForeignKey(News,related_name="gallery_photos",verbose_name="Фото в галлерею",on_delete=models.CASCADE)
     image = models.ImageField(upload_to="News/", verbose_name="Фото")
 
     def __str__(self):
@@ -97,7 +97,7 @@ class BeerGroup(models.Model):
 class FilterTag(models.Model):
     name = models.CharField(max_length=255, verbose_name="Название")
     url = models.CharField(max_length=255,default="", verbose_name="url")
-    group = models.ForeignKey(BeerGroup, related_name="cat", null=True, verbose_name="Тип пива",on_delete=models.PROTECT)
+    group = models.ForeignKey(BeerGroup, related_name="cat", null=True, verbose_name="Тип пива",on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
@@ -111,8 +111,8 @@ class Bottle(models.Model):
     name = models.CharField(max_length=255, verbose_name="Название")
     sub_name = models.CharField(max_length=255,verbose_name="Транслит",default="")
     drink_with = models.CharField(max_length=255,verbose_name="Пить с")
-    drink_from = models.ForeignKey(Wineglasses, verbose_name="Пить из",on_delete=models.PROTECT)
-    group = models.ForeignKey(BeerGroup,null=True, verbose_name="Тип пива",on_delete=models.PROTECT)
+    drink_from = models.ForeignKey(Wineglasses, verbose_name="Пить из",on_delete=models.SET_NULL,null=True)
+    group = models.ForeignKey(BeerGroup,null=True, verbose_name="Тип пива",on_delete=models.SET_NULL)
     temperature = models.IntegerField(verbose_name="Пить при")
     ABV = models.DecimalField(max_digits=3,decimal_places=1, verbose_name="ABV")
     OG = models.IntegerField(verbose_name="OG")
@@ -132,8 +132,8 @@ class Bottle(models.Model):
 
 
 class BottleTagSpecif(models.Model):
-    bottle = models.ForeignKey(Bottle, related_name="tag", verbose_name="Бутылка",on_delete=models.PROTECT)
-    tag = models.ForeignKey(FilterTag, related_name="filter_tag", verbose_name="Тег для фильтра",on_delete=models.PROTECT)
+    bottle = models.ForeignKey(Bottle, related_name="tag", verbose_name="Бутылка",on_delete=models.CASCADE)
+    tag = models.ForeignKey(FilterTag, related_name="filter_tag", verbose_name="Тег для фильтра",on_delete=models.CASCADE)
 
     def __str__(self):
         return self.tag.name
@@ -143,9 +143,9 @@ class BottleTagSpecif(models.Model):
 
 
 class BottlePropLevelSpecif(models.Model):
-    bottle = models.ForeignKey(Bottle, default= "", related_name="properties", verbose_name="Бутылка",on_delete=models.PROTECT)
-    prop_id = models.ForeignKey(BottleProperties, related_name="prop", verbose_name="Свойство",on_delete=models.PROTECT)
-    level_id = models.ForeignKey(Level, related_name="level", verbose_name="Уровень",on_delete=models.PROTECT)
+    bottle = models.ForeignKey(Bottle, default= "", related_name="properties", verbose_name="Бутылка",on_delete=models.CASCADE)
+    prop_id = models.ForeignKey(BottleProperties, related_name="prop", verbose_name="Свойство",on_delete=models.CASCADE)
+    level_id = models.ForeignKey(Level, related_name="level", verbose_name="Уровень",on_delete=models.CASCADE)
 
     def __str__(self):
         return self.prop_id.name
@@ -155,8 +155,8 @@ class BottlePropLevelSpecif(models.Model):
 
 
 class NewsBottleSpecif(models.Model):
-    news_item = models.ForeignKey(News, related_name="news_item_specif", verbose_name="Новость",on_delete=models.PROTECT)
-    bottle = models.ForeignKey(Bottle, related_name="bottle", verbose_name="Бутылка",on_delete=models.PROTECT)
+    news_item = models.ForeignKey(News, related_name="news_item_specif", verbose_name="Новость",on_delete=models.CASCADE)
+    bottle = models.ForeignKey(Bottle, related_name="bottle", verbose_name="Бутылка",on_delete=models.CASCADE)
 
     def __str__(self):
         return self.bottle.name
