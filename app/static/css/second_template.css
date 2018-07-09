@@ -19,7 +19,10 @@ background-color: rgba(0,0,0,0.6);
 
 .h_logo {
     float: left;
+    text-decoration: none;
+    width: 130px;
 }
+
 .h_logo img{
     width: 120px;
     margin-top: -7px;
@@ -106,6 +109,31 @@ background-color: rgba(0,0,0,0.6);
    
 }
 
+.underlogo_text {
+    font-family: "palker_font", Verdana, Tahoma;
+    font-size: 32px;
+    margin-top: -4px;
+    color: white;
+
+}
+
+.underlogo_text2 {
+    font-family: "palker_font", Verdana, Tahoma;
+    font-size: 32px;
+    margin-top: -4px;
+    color: white;
+    display: none;
+
+}
+
+.h_logo:hover .underlogo_text {
+    display: none;
+}
+
+.h_logo:hover .underlogo_text2 {
+    display: block;
+
+}
 
 
 .h_address {

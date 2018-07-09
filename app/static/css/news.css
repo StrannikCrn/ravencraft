@@ -68,7 +68,8 @@
 
 .news_block {
     overflow: hidden;
-    margin-bottom: 30px;
+    margin-bottom: 80px;
+    margin-top: 20px;
 }
 
 .light_box {

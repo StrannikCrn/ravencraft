@@ -48,7 +48,7 @@
 
 .c_form_block p {
     margin-bottom: 5px;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .vinete_wr {
@@ -81,4 +81,13 @@
     background-color: rgb(255, 255, 255);
     border-color: white;
 
+}
+
+.h_logos {
+    float: none;
+    margin-bottom: 0px;
+}
+
+footer {
+    margin-top: 0px;
 }
