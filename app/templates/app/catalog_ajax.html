@@ -1,6 +1,38 @@
+    <script>
+        $(document).ready(function () {
+            $(".image_big").each(function () {
+                var img = $(this).attr("data-val");
+                $(this).attr("src", img);
+            });
+            $(".bottle_image").click(function () {
+                var big_image = $(this).siblings(".big_image_wr");
+                if (big_image.length > 0) {
+                    $(".light_box").removeClass("hidden");
+                    setTimeout(function () {
+                        $(".light_box").addClass("op1");
+                    }, 1)
+                    big_image.removeClass("fake_hidden");
+                }
+            });
+            $(".big_image_wr").click(function () {
+                $(".light_box").removeClass("op1");
+                setTimeout(function () {
+                    $(".light_box").addClass("hidden");
+                }, 300);
+                $(".big_image_wr").addClass("fake_hidden");
+            });
+        });
+                </script>
+
 {% for bottle in bottles %}
     <div class="bottle_wr">
-        <img src="{{ bottle.image_index.url }}"/>
+        <img alt="" class="bottle_image" src="{{ bottle.image_index.url }}"/>
+        {% if bottle.image_big.name is not None %}
+            <div class="big_image_wr fake_hidden">
+                <span class="helper"></span> <img class="image_big" alt="" src=""
+                                                  data-val="{{ bottle.image_big.url }}"/>
+            </div>
+        {% endif %}
         <div id="desc_bottle{{ forloop.counter }}" class="list bottle_desc_item">
             <h3 class="bottle_name palker">{{ bottle.name }}</h3>
             <div class="desc_table">
