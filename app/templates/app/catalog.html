@@ -2,6 +2,11 @@
 {% load staticfiles %}
 
 {% block head %}
+        <title>{{ cur_group.title }} | Крафтовая пивоварня Ravencraft</title>
+    <meta name="description"
+          content="{{ cur_group.description }}">
+    <meta name="Keywords" content="{{ cur_group.keywords }}">
+
     <link rel="stylesheet" href="{% static 'css/second_template.css' %}">
     <link rel="stylesheet" href="{% static 'css/catalog.css' %}">
     <link rel="stylesheet" href="{% static 'css/bottles.css' %}">

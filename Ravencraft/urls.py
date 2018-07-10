@@ -34,4 +34,5 @@ urlpatterns = [
     url(r'^get_news/', get_news_block),
     url(r'^kontakty/', contacts),
     url(r'^admin/', admin.site.urls),
+	url(r'^robots.txt$', serve, {'path': "/robots.txt", 'document_root': settings.MEDIA_ROOT, 'show_indexes': False}),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

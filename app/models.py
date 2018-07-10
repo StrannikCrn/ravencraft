@@ -22,6 +22,7 @@ class News(models.Model):
     image = models.ImageField(upload_to="app/static/images/news/", verbose_name="Картинка",
                                     null=True)
 
+
     def filename(self):
         if self.image.name is None:
             return ""
@@ -85,6 +86,9 @@ class BeerGroup(models.Model):
     image = models.ImageField(upload_to="bottles_groups/", verbose_name="Иконка")
     image2 = models.ImageField(upload_to="bottles_groups/", null=True, verbose_name="Иконка (неактивн.)")
     text = models.TextField(verbose_name="Текст", default="")
+    title = models.CharField(max_length=255, default="", verbose_name="Тайтл")
+    description = models.CharField(max_length=255, default="", verbose_name="Description")
+    keywords = models.CharField(max_length=255, default="", verbose_name="Keywords")
 
     def __str__(self):
         return self.name
