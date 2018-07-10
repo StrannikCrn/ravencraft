@@ -20,6 +20,7 @@ from django.conf.urls import include
 from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf import settings
+from django.views.static import serve
 
 urlpatterns = [
     url(r'^summernote/', include('django_summernote.urls')),
