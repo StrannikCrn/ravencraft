@@ -110,7 +110,27 @@
     padding: 5px;
     background-color: white;
 }
-
+.big_image_wr{
+    position: fixed;
+    width: 100%;
+    text-align: center;
+    z-index: 11;
+    transition-duration: 0.3s;
+    top:0;
+    left: 0;
+    height: 100%;
+    cursor: zoom-out;
+}
+.image_big{
+    float: none !important;
+    height: 550px;
+    vertical-align: middle;
+}
+.helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
 .top_pict {
     background-image: url(/static/images/catalogue/HTI_catalogue_1920x470.jpg);
 }
@@ -121,6 +141,22 @@
 }
 h2 {
     margin-left: 12px;
-    
-
+}
+.light_box{
+    z-index: 10;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255,255,255,0.7);
+    opacity: 0;
+    transition-duration: 0.3s;
+    top:0;
+    left: 0;
+    cursor: pointer;
+}
+.bottle_image{
+    cursor: zoom-in;
+}
+.fake_hidden{
+    top: -1000px;
 }
