@@ -160,3 +160,6 @@ h2 {
 .fake_hidden{
     top: -1000px;
 }
+.art_text{
+    font-size: 16px;
+}
