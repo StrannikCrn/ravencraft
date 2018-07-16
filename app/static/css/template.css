@@ -177,14 +177,14 @@ footer a:hover {
     margin-right: 80px;
 }
 
-.f_sorst_column {
+.f_sorts_column {
     float: left;
     margin-right: 20px;
     width: 450px;
 height: 242px;
 }
 
-.f_sorst_column a {
+.f_sorts_column a {
     color: white;
     display: block;
     width: 200px;
@@ -205,15 +205,21 @@ height: 242px;
 }
 
 .f_logos a {
-    margin-right: 5px;
+    margin-left: 5px;
     display: block;
     float: left;
     border: 1px solid white;
     border-radius: 100px;
-    width: 28px;
-    height: 28px;
+    width: 35px;
+    height: 35px;
     background-position: center;
     background-repeat: no-repeat;
+    transition-duration: 0.3s;
+}
+
+.f_logos a:hover {
+    box-shadow: 0 0 0 2px inset white;
+   
 }
 
 .f_contacts {

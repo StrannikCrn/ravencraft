@@ -27,7 +27,7 @@
             <img class="f_logo" src="{% static 'images/template/Raven_logo.png' %}"/>
             <div class="f_sorts segoe">
                 <div class="f_label palker">Наши сорта</div>
-                <div class="f_sorst_column">
+                <div class="f_sorts_column">
                     {% for bottle in bottles %}
                         <a href="/nashi-sorta/{{ bottle.group.url }}/all#{{ bottle.sub_name }}">{{ bottle.name }}</a>
                     {% endfor %}
@@ -53,9 +53,9 @@
                         <p class="f_cellphone">+7 (920) 467-65-08</p>
                         <p class="f_address">г. Воронеж, Ленинский пр-т 158/3</p>
                         <div class="f_logos">
-                            <a href="" class="vk_circle"></a>
-                            <a href="" class="facebook_circle"></a>
-                            <a href="" class="instagram_circle"></a>
+                            <a href="https://vk.com/ravencraftbeer" target="_blank" class="vk_circle"></a>
+                            <a href="https://www.facebook.com/Ravencraftbeer" target="_blank" class="facebook_circle"></a>
+                            <a href="https://www.instagram.com/ravencraftvrn/" target="_blank" class="instagram_circle"></a>
                         </div>
                     </div>
                 </div>
