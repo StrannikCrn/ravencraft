@@ -12,12 +12,19 @@
     overflow: hidden;
 
 }
+
+.drink_from:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 .drink_from:hover .bottle_hint{
     opacity: 1;
     height: 200px;
     transition:border 0ms 0ms,padding 0ms 0s, height 0ms 0ms, opacity 300ms 0ms;
     padding: 15px;
     border: 1px solid #D4A107;
+    cursor: default;
 
 }
 
