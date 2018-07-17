@@ -250,7 +250,7 @@
 
 .parallax_dark {
     background-color: rgba(0, 0, 0, 0.8);
-    padding: 50px 0;
+    padding: 100px 0;
 }
 
 .features {
@@ -263,16 +263,13 @@
 }
 
 .feature_label {
-    font-size: 30px;
+    font-size: 35px;
 }
 
 .feature_text {
 }
 
-.feature_item img {
-    border-radius: 100px;
-    width: 150px;
-}
+
 
 /*-------END_FEATURES-------*/
 .about_text {
