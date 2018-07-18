@@ -235,6 +235,11 @@ height: 242px;
     float: left;
     margin-right: 40px;
 }
+
+.f_btns p:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
 .f_copyright{
     margin-top: 40px;
     font-size: 14px;
@@ -325,3 +330,4 @@ height: 242px;
     100% {transform: rotate(0deg)}
 }
 /*--------------END_ANIMATIONS------------------------*/
+
