@@ -12,3 +12,10 @@
 h2{
     margin: 20px 0;
 }
+.news_item_date{
+    font-size: 40px;
+    font-weight: normal;
+    position: absolute;
+    top: 0;
+    right: 13px;
+}

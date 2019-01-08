@@ -1,0 +1,4 @@
+PassengerAppRoot /home2/c/c1mg/RavencraftRepo
+PassengerPython /usr/bin/python3.4
+PassengerFriendlyErrorPages on
+ErrorLog /home2/c/c1mg/RavencraftRepo/error_log

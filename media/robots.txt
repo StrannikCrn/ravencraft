@@ -1,4 +1,4 @@
 User-agent:*
 Disallow: *
 Disallow: /admin
-host: http://blackraven.pro
+host: http://ravencraft.ru

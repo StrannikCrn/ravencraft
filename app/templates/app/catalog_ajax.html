@@ -34,7 +34,7 @@
             </div>
         {% endif %}
         <div id="desc_bottle{{ forloop.counter }}" class="list bottle_desc_item">
-            <h3 class="bottle_name palker">{{ bottle.name }}</h3>
+            <h3 class="bottle_name palker">{{ bottle.name }} <span class="fr">{{ bottle.volume }}</span></h3>
             <div class="desc_table">
                 <div class="properties">
                     {% for prop in bottle.properties.all %}

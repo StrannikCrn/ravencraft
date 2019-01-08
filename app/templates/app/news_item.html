@@ -21,8 +21,13 @@
                     <div class="vinete_inner"></div>
                 </div>
                 <h1>{{ news_item.name }}</h1>
+                <p class="news_item_date">{{ news_item.date|date:"d.m.Y" }}</p>
             </div>
-            {% if bottles_news|length > 0 %}
+
+            <div class="art_text oh segoe">
+                {{ news_item.text|safe }}
+            </div>
+                    {% if bottles_news|length > 0 %}
                 <div class="oh bottles_wr">
                 <div class="bottles">
                     {% for bottle in bottles_news %}
@@ -41,7 +46,7 @@
                         {% else %}
                             <div id="desc_bottle{{ forloop.counter }}" class="bottle_desc_item">
                         {% endif %}
-                    <h3 class="bottle_name palker">{{ bottle.name }}</h3>
+                    <h3 class="bottle_name palker">{{ bottle.name }} <span class="fr">{{ bottle.volume }}</span></h3>
                     <div class="desc_table">
                         <div class="properties">
                             {% for prop in bottle.properties.all %}
@@ -98,9 +103,6 @@
                 </div>
 
             {% endif %}
-            <div class="art_text oh segoe">
-                {{ news_item.text|safe }}
-            </div>
             <div class="gallery_wrap">
                 {% if gallery_photos|length > 0 %}
                     <div class="fotorama" data-nav="thumbs">

@@ -315,6 +315,9 @@ height: 242px;
     animation-iteration-count: infinite;
     margin-left: 80px;
 }
+.fr{
+    float: right;
+}
 /*--------------END_FRAMEWORK------------------------*/
 
 

@@ -106,7 +106,7 @@
                 {% else %}
                     <div id="desc_bottle{{ forloop.counter }}" class="bottle_desc_item">
                 {% endif %}
-            <h3 class="bottle_name palker">{{ bottle.name }}</h3>
+            <h3 class="bottle_name palker">{{ bottle.name }} <span class="fr">{{ bottle.volume }}</span></h3>
             <div class="desc_table">
                 <div class="properties">
                     {% for prop in bottle.properties.all %}
@@ -177,7 +177,7 @@
                                 <div class="light_box">
                                     <div class="oh">
                                         <p class="category">{{ news_item.category }}</p>
-                                        <p class="date">{{ news_item.date }}</p>
+                                        <p class="date">{{ news_item.date|date:"d.m.Y" }}</p>
                                     </div>
                                     <div class="bottom_block">
                                         <b>{{ news_item.name }}</b>

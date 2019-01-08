@@ -15,7 +15,7 @@ class NewsCategory(models.Model):
 class News(models.Model):
     url = models.CharField(max_length=255, verbose_name="URL",default="")
     name = models.CharField(max_length=255, verbose_name="Название")
-    date = models.DateTimeField(auto_now_add=True, blank=True, verbose_name="Дата")
+    date = models.DateTimeField(verbose_name="Дата")
     short_description = models.CharField(max_length=255,verbose_name="Короткое описание")
     text = models.TextField(verbose_name="Текст")
     category = models.ForeignKey(NewsCategory, verbose_name="Категория",related_name="category",on_delete=models.SET_NULL, null=True)

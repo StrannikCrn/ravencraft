@@ -58,7 +58,7 @@
                                     <div class="light_box">
                                         <div class="oh">
                                             <p class="category">{{ news_item.category }}</p>
-                                            <p class="date">{{ news_item.date }}</p>
+                                            <p class="date">{{ news_item.date|date:"d.m.Y" }}</p>
                                         </div>
                                         <div class="bottom_block">
                                             <b>{{ news_item.name }}</b>
